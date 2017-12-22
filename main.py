@@ -38,6 +38,7 @@ class Application():
         print('on close called')
         self.operation_frame.on_app_close()
         self.master.destroy()
+        sys.stdout.flush()
         sys.exit()
 
 
@@ -49,7 +50,7 @@ class BannerFrame(tk.Frame):
 
     def render(self):
         self.pack()
-        image = Image.open(r'D:\Documents\tmp\drawer\assets\xmas_tree.gif')
+        image = Image.open('./assets/banner.gif')
         photo = ImageTk.PhotoImage(image)
         label = tk.Label(self, image=photo, borderwidth=0)
         label.image = photo
@@ -106,5 +107,5 @@ if __name__ == '__main__':
     root = tk.Tk()
     app = Application(root)
     root.title(WINDOW_TITLE)
-    root.iconbitmap(r'D:\Documents\tmp\drawer\assets\favicon.ico')
+    root.iconbitmap('./assets/favicon.ico')
     root.mainloop()
